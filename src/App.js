@@ -1,3 +1,39 @@
+import React from 'react'
+import Success from './components/Success';
+import Failure from './components/Failure';
+import ph1 from './Images/download.jpg'
+import ph2 from './Images/download2.jpg'
+import ph3 from './Images/images.jpg'
+import { k1, k2, k3, k4, k5, k6 } from './components/Commonvar';
+
+function App() {
+  var user=false;
+  return (
+  <>
+  <h1>k1 value:{k1}</h1>
+  <h1>k2 value:{k2}</h1>
+  <h1>k3 value:{k3}</h1>
+  <h1>{k4}{k5}{k6}</h1>
+  <img src={ph1} alt="wrong path"></img>
+  <img src={ph2} alt="wrong path"></img>
+  <img src={ph3} alt="wrong path"></img>
+  <h1>If user is Online</h1>
+    {user===true ? <Success /> : <Failure />}
+  </>
+  )
+}
+export default App
+/*function Vicky()
+{
+  var [v1,v2,...v3]=[11,22,33,44,55,66]
+  return(
+    {typeof(v1)}
+    {typeof(v2)}
+    {typeof(v3)}
+    {Array.isArray(v3) && "is array"}
+  )
+}
+export default Vicky
 /*function Vicky()
 {
   var arr=[11,11,11];
