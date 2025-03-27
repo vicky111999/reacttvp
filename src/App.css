@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.myclass
+{
+  background-color: red;
+  color: cyan;
+  border-radius: 20px;
+  border:blue;
+}
+#myid
+{
+  text-transform: capitalize;
+  text-transform: upprercase;
+}
+h6
+{
+  background-color: red;
+  color: cyan;
+  font-size: 20px;
+  font-family: times;
+  border:solid blue;
+  border-radius: 20px;
+}

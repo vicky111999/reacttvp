@@ -1,4 +1,62 @@
-import React from 'react'
+function Vicky(props)
+{
+  return(
+    <>
+    <h1>student roll number:{props.rno}</h1>
+    <h1>student name:{props.sname}</h1>
+    <h1>student mark:{props.mark}</h1>
+  </>
+  )
+}
+export default Vicky
+/*import './App.css'
+function Vicky()
+{
+  //1.simple jsx
+  const v1=<h1>welcome to header1</h1>
+  //2.multiple tags
+  const v2=<><h1>head1</h1><h2>head2</h2></>
+  //3.expression
+  var a=10;
+  var b=20;
+  const v3=<>{a+b}</>
+  //4. element must be closed
+var v4=<hr/>
+//5.using attributes
+var v5=<h2 id="myid" className="myclass">This is css</h2>
+  //6.inline css
+  var v6=<h1 style={{backgroundColor:'red',color:'yellow'}}>HI!!</h1>
+//7.external css
+var mystyle={
+  backgroundColor:"yellow",
+  color:"green",
+  fontSize:"20px",
+  textTransform:"uppercase"
+}
+  return(
+    <>
+    <h1>React JSX - javascript & XML - allow html code in react</h1>
+    sample:{v1}
+    multiple tag:{v2}
+    total:{v3}
+    {v4}
+    {v5}
+    {v6}
+    <h5 style={mystyle}>welcome</h5>
+    <h5 style={mystyle}>welcome1</h5>
+    <h5 style={mystyle}>welcome3</h5>
+    <h5 style={mystyle}>welcome4</h5>
+    <h5 style={mystyle}>welcome5</h5>
+    <h6>nsidcnn</h6>
+    <h6>nsidcnn</h6>
+    <h6>nsidcnn</h6>
+    <h6>nsidcnn</h6>
+
+    </>
+  )
+}
+export default Vicky
+/*import React from 'react'
 import Success from './components/Success';
 import Failure from './components/Failure';
 import ph1 from './Images/download.jpg'
