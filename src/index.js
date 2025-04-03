@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Vicky from './App';
 //import reportWebVitals from './reportWebVitals';
+// var object={
+//   rno:1,
+//   sname:"vicky",
+//   subjects:{tamil:100,
+//   english:44,
+//   maths:32},
+//   hobbies:["cricket","tennies"]
+// }
 
+var arr=[{sno:1,sname:"vicky",mark:99},
+   {sno:2,sname:"priya",mark:90},
+   {sno:3,sname:"tamil",mark:28}]
+   var json={rno:1,sname:"tamil",mark:100}
+  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Vicky rno="1001" sname="vicky" mark="100"/>
+    <Vicky myarr={arr} my={json} />
   </React.StrictMode>
 );
 

@@ -1,4 +1,171 @@
-function Vicky(props)
+function App()
+{
+  const dis=(e)=>{
+
+  
+  document.getElementById("t1").style.backgroundColor="white"
+  document.getElementById("t2").style.backgroundColor="white"
+  document.getElementById("t3").style.backgroundColor="white"
+
+  if(e.target.id==="t1")
+    document.getElementById("t1").style.backgroundColor="red"
+
+    if(e.target.id==="t2")
+      document.getElementById("t2").style.backgroundColor="red"
+
+    if(e.target.id==="t3")
+      document.getElementById("t3").style.backgroundColor="red"
+
+}
+  return(
+    <>
+    <h1>onFocus</h1>
+    <input type="text" onFocus={(e)=>dis(e)} id="t1"></input>
+    <input type="text" onFocus={(e)=>dis(e)} id="t2"></input>
+    <input type="text" onFocus={(e)=>dis(e)} id="t3"></input>
+    </>
+  )
+}
+export default App
+/*function App()
+{
+  const show=()=>{
+    if(document.getElementById("hid").type==="hidden")
+      document.getElementById("hid").type="text"
+    else
+    document.getElementById("hid").type="hidden"
+    
+  }
+  const copy=()=>{
+    document.getElementById("hid").value=document.getElementById("ph").value
+
+  }
+  return(<>
+  <input type="text" onChange={copy} id="ph" placeholder="enter phone"></input>
+  <input type="hidden" value="" id="hid"></input>
+  <input type="button" onClick={show} value="show/hide"></input>
+  </>
+
+  )
+}
+export default App
+/*function App()
+{
+  return(
+      <form>
+        <input type="text" placeholder="enter name"></input>
+        <input type="number" placeholder="enter no"></input>
+        <input type="password" placeholder="enter password"></input>
+        <br></br>
+        <input type="radio" name="gen" checked></input>male
+        <input type="radio" name="gen" ></input>female
+        <input type="radio" name="gen" ></input>other
+        <br></br>
+        select course:
+        <input type="checkbox"></input>c 
+        <input type="checkbox"></input>c++ 
+        <input type="checkbox"></input>phython 
+        <input type="checkbox"></input>javascript
+        enter address:
+        <textarea cols="30" rows="7"></textarea>
+        <br></br>
+        <select>
+        <option>sunday</option>
+        <option>monday</option>
+        <option>tuesday</option>
+        <option>wednesday</option>
+        <option>thursday</option>
+        <option>friday</option>
+        </select>
+        email:<input type="email"></input>
+        select DOB:
+        <input type="date"></input>
+        <input type="time"></input>
+        <input type="week"></input>
+        <input type="file"></input>
+        <input type="range" min="0" max="7"></input>
+        <input type="hidden" value="100"></input>
+        <input type="reset"></input>
+        <input type="submit"></input>
+        <input type="button" value="clickme"></input>
+      </form>
+  )
+}
+export default App
+/* import React from "react";
+ class App extends React.Component
+ {
+  constructor(props)
+  {
+    super()
+    this.state=props.my
+    this.state={      //simple state     keyword(this.state) 
+       rno:1001,
+       sname:"vicky",
+       mark:98
+     } 
+  }
+  change =()=> {
+    this.setState({mark:100,sname:"vignesh"})
+  }
+  render()
+  {
+    return(
+        <>
+        <h1>props using class components</h1>
+        {this.props.myarr.map((s)=> <><br></br>{s.sno} {s.sname} {s.mark}</>)}
+       <h1>simple state</h1>
+       <br></br> {this.state.rno}
+        {this.state.sname} 
+        {this.state.mark}
+       <button onClick={this.change}>change</button>
+        </>
+
+    )
+  }
+ } 
+ export default App
+/*function Vicky(props)
+{
+  return(
+    <>  
+        {props.myarr.map((s)=><>{s.sno} {s.sname} {s.mark}</>)}
+    </>
+    
+  )
+}
+export default Vicky
+/*function Vicky(props)
+{
+  var tot=0;
+  var subnames=[];
+  for (var v in props.myobject.subjects)
+  {
+     tot=tot+props.myobject.subjects[v]
+     subnames.push(v)
+    console.log(v)
+  }
+  return(
+    <>
+    <h1>nested json props</h1>
+    <h1>student roll number:{props.myobject.rno}</h1>
+    {/* <h1>student name:{props.myobject.sname}</h1>
+    <h1>student mark:{props.myobject.subjects.tamil}</h1>
+    <h1>student mark:{props.myobject.subjects["english"]}</h1>
+    // <h1>student mark:{props.myobject.subjects["maths"]}</h1> */
+ 
+//   <ol>  {subnames.map((s)=><li>{s} mark:{props.myobject.subjects[v]}</li>)}</ol>
+  
+//   <ol> 
+//     {props.myobject.hobbies.map((s)=><li>{s}</li>)}
+//   </ol>
+
+//     <h1>total:{tot}</h1>
+//   </>
+//   )
+// }
+// export default Vicky
+/*function Vicky(props)
 {
   return(
     <>
