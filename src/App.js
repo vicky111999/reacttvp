@@ -1,4 +1,125 @@
+ import {useEffect} from 'react'
+ function App()
+ {
+  useEffect(()=>{
+  document.title="vicky" 
+  })
+  return(
+    <>
+    <h1>useEffect hook</h1>
+    {document.title}   
+    { /* previous title stored shown  */ }
+    </>
+  )
+ }
+ export default App
+/*import {useState} from 'react'
 function App()
+{
+  const [name,setName]=useState("vignesh")
+  const dis=(e)=>{
+    setName(e.target.value)
+    console.log(e.target.value)
+  }
+  const show=()=>{
+    setName("tamil")
+  }
+  return(
+      <>
+      <h1>react hook</h1>
+      <input type="text" value={name} onChange={(e)=>dis(e)}></input>
+      <h1>{name}</h1>
+      <button onClick={show}>change</button>
+      </>
+  )
+}
+export default App
+/*function App()
+{console.log(undefined+1)
+  return(
+    <></>
+  )
+}
+export default App
+/*function App()
+{
+  const dis=(e)=>{
+    document.getElementById("res").innerHTML= e.target.tagName+"typing.."+"type:"+e.target.type
+  }
+  return(
+      <>
+      <input type="text" onChange={(e)=>dis(e)}></input>
+      <input type="password" onChange={(e)=>dis(e)}></input>
+      <input type="file" onChange={(e)=>dis(e)}></input>
+      <input type="number" onChange={(e)=>dis(e)}></input>
+      <textarea onChange={(e)=>dis(e)}></textarea>
+      <select onChange={(e)=>dis(e)}>
+          <option>mon</option>
+          <option>tues</option>
+      
+      </select>
+      <div id="res"></div>
+      </>
+  )
+}
+export default App
+/*function App()
+{
+  const show=(e)=>{
+  e.preventDefault() //without refresh 
+  console.log("submit button or button pressed")  
+
+}
+var nac=0,pwc=0;
+const dis=(e)=>{
+  if(e.target.name==="na")
+    nac+=1
+  if(e.target.name==="pw")
+    pwc+=1
+
+document.getElementById("r1").innerHTML=nac
+document.getElementById("r2").innerHTML=pwc
+}
+  return(
+<>
+<form onSubmit={show}>
+<input type="text" onChange={(e)=>dis(e)} name="na" placeholder="Enter Name" ></input><br></br>
+<input type="password" onChange={(e)=>dis(e)} name="pw" placeholder="Enter password" ></input>
+<input type="submit"></input>
+<input type="button" value="clickme" ></input>
+<input type="button"></input>
+<button><b>clickme</b></button>
+<div id="r1"></div>
+<div id="r2"></div>
+</form>
+</>
+  )
+}
+export default App
+/*function App()
+{
+  var c=0;
+  const dis=(e)=>{
+    e.target.style.backgroundColor="red";
+  e.target.value=parseInt(e.target.value)+1
+  }
+  const dis1=(e)=>{
+    e.target.style.backgroundColor="green";
+
+  }
+  return(
+    <>
+    <h1>onBlur event</h1>
+
+    <input type="text" onBlur={(e)=>dis(e)} onFocus={(e)=>dis1(e)} value={c}></input>
+    <input type="text" onBlur={(e)=>dis(e)} onFocus={(e)=>dis1(e)} value={c}></input>
+    <input type="text" onBlur={(e)=>dis(e)} onFocus={(e)=>dis1(e)} value={c}></input>
+    </>
+
+  )
+}
+export default App
+/*function App()
 {
   const dis=(e)=>{
 
@@ -20,10 +141,12 @@ function App()
   return(
     <>
     <h1>onFocus</h1>
+
     <input type="text" onFocus={(e)=>dis(e)} id="t1"></input>
     <input type="text" onFocus={(e)=>dis(e)} id="t2"></input>
     <input type="text" onFocus={(e)=>dis(e)} id="t3"></input>
     </>
+    
   )
 }
 export default App
