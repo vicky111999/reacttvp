@@ -1,4 +1,102 @@
- import {useEffect} from 'react'
+import {useForm} from 'react-hook-form'
+function App()
+{
+  const {handleSubmit,register,formState:{errors}}=useForm()
+  const dis=(data)=>{
+console.log(data)
+  }
+return(
+<form onSubmit={handleSubmit(dis)}>
+<input type="text" placeholder="Enter rno" {...register("rno",{required:true},{minLength:'5'})}></input>
+{errors.rno && errors.rno.type==="required" && <font color="red">must fill</font>}
+{errors.rno && errors.rno.type==="minLength" && <font color="blue">must fill</font>}
+<input type="text" placeholder="Enter name" {...register("name",{minLength:'5'})}></input>
+{errors.name && errors.name.type==="minLength" && <font color="red">must fill</font>}
+<input type="number" placeholder="Enter mark" {...register("mark",{required:true,min:0,max:100})}></input>
+{errors.mark && errors.mark.type==="min" && <font color="blue">0-100</font>}
+{errors.mark && errors.mark.type==="max" && <font color="green">0-100</font>}
+{errors.mark && errors.mark.type==="required" && <font color="red">must fill</font>}
+<input type="text" placeholder="Enter city" {...register("city",{pattern:/^[A-Za-z]+$/})}></input>
+{errors.city && errors.city.type==="pattern" && <font color="red">only caps</font>}
+<input type="text" placeholder="Enter state" {...register("state",{pattern:(/[A-Z]/g,/[0-9]/g,/[^a-zA-z0-9]/g),minLength:'8'})}></input>
+{errors.state && errors.state.type==="pattern" && <font color="red">1 letter missing..</font>}
+{errors.state && errors.state.type==="minLength" && <font color="red">1 letter missing..</font>}
+<input type="submit" ></input>
+</form>
+)
+}
+export default App
+/*import {useForm} from 'react-hook-form'
+function App()
+{
+  const {handleSubmit,register}=useForm()
+  const dis=(data)=>{
+console.log(data)
+  }
+return(
+<form onSubmit={handleSubmit(dis)}>
+<input type="text" placeholder="Enter rno" {...register("rno")}></input>
+<input type="text" placeholder="Enter name" {...register("name")}></input>
+<input type="text" placeholder="Enter mark" {...register("mark")}></input>
+<input type="text" placeholder="Enter city" {...register("city")}></input>
+<input type="submit" ></input>
+</form>
+)
+}
+export default App
+/*import img1 from './Images/im1.jpg'
+import img2 from './Images/im2.jpg'
+import img3 from './Images/im3.jpg'
+
+function App()
+{
+  var arrimg=[img1,img2,img3]
+  var i=0;
+  function myfun(){
+    document.getElementById("imgid").src=arrimg[i]
+    i=i+1
+    if(i>=3)
+      {
+        i=0
+       }
+      setTimeout(myfun,1000)  
+  }
+  myfun()
+  return(
+    <>
+    <h1>imgages slide show</h1>
+    <img src={img1} alt="" id="imgid"></img>
+    </>
+  )
+}
+export default App
+/*import img1 from './Images/im1.jpg'
+import img2 from './Images/im2.jpg'
+import img3 from './Images/im3.jpg'
+
+function App()
+{
+  var arrimg=[img1,img2,img3]
+  var i=0;
+  function myfun(){
+    document.getElementById("imgid").src=arrimg[i]
+    i=i+1
+    if(i>=3)
+      {
+        i=0
+       }
+      setTimeout(myfun,1000)  
+  }
+  myfun()
+  return(
+    <>
+    <h1>imgages slide show</h1>
+    <img src={img1} alt="" id="imgid"></img>
+    </>
+  )
+}
+export default App
+/*import {useEffect} from 'react'
  function App()
  {
   useEffect(()=>{
@@ -8,11 +106,11 @@
     <>
     <h1>useEffect hook</h1>
     {document.title}   
-    { /* previous title stored shown  */ }
-    </>
-  )
- }
- export default App
+    //  { /* previous title stored shown  */ 
+    // </>
+  // )
+//  }
+//  export default App
 /*import {useState} from 'react'
 function App()
 {
