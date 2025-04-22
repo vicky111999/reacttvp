@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Vicky from './App';
 //import reportWebVitals from './reportWebVitals';
-// var object={
-//   rno:1,
+// var jso={
+//   rno:1001,
 //   sname:"vicky",
 //   subjects:{tamil:100,
 //   english:44,

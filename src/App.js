@@ -1,4 +1,151 @@
-import {useForm} from 'react-hook-form'
+import React from 'react'
+class App extends React.Component
+{
+  constructor(props)
+  {
+    super()
+   this.state=props.my
+  }
+  
+  shouldComponentUpdate()
+  {
+    return true
+  }
+  componentDidMount()
+  {
+    this.dis=(e)=>
+    {
+    var d1=document.getElementById("t1").value
+    var d2=document.getElementById("t2").value
+    var d3=document.getElementById("t3").value
+ setTimeout(()=>this.setState({sname:d1,rno:d2,mark:d3})) 
+}
+}
+  componentDidUpdate()
+  {
+   setTimeout(()=>document.getElementById("res").innerHTML="Updated",2000)   
+  }
+  
+getSnapshotBeforeUpdate(prevprops,prevstate)
+{
+
+  var p1=prevstate.rno
+  var p2=prevstate.sname
+  var p3=prevstate.mark
+  setTimeout(()=>document.getElementById("res1").innerHTML="prev value:"+p1+" "+p2+" "+p3,2000)
+  for (let i=0;i>=p1.length;i++)
+  {
+    p1=p1+p1
+  }
+  
+}
+
+  render()
+  {
+
+  return(
+    <>
+    <h1>Class components-Life cycle 1.Mount</h1>
+    <h1>student name:{this.state.sname}</h1>
+    <h1>student rno:{this.state.rno}</h1>
+    <h1>student mark tamil:{this.state.mark}</h1>
+    <div id='res'></div>
+    <div id='res1'></div> 
+    <input type='text' id='t1' placeholder='enter sname'></input>
+    <input type='text' id='t2' placeholder='enter rno'></input>
+    <input type='text' id='t3' placeholder='enter mark'></input>
+    
+    <button onClick={(e)=>(this.dis)(e)}id='click'>change</button>
+    
+    </>
+  )}
+}
+export default App
+/*import React from "react";
+class Child extends React.Component
+{
+  componentWillUnmount()
+  {
+    document.getElementById("res").innerHTML="components deleted"
+  }
+  render()
+  {
+    return(
+      <>
+      <h1>this is child components</h1>
+      <h1>this is child components</h1>
+      <h1>this is child components</h1>
+      </>
+    )
+  }
+}
+class App extends Child
+{
+constructor()
+{
+  super()
+  this.state={view:true}
+}
+dis=()=>{
+  this.setState({view:false})
+}
+
+render()
+{
+  var comp=null;
+  if(this.state.view===true)
+    comp=<Child></Child>
+return(
+  <>
+  {comp}
+  <div id="res"></div>
+  <button onClick={this.dis}>remove</button>
+  </>
+)
+}
+}
+export default App
+/*
+/*import React from 'react'
+class App extends React.Component
+{
+  constructor(props)
+  {
+    super()
+    this.state=props.my
+  }
+  shouldComponentUpdate()
+  {
+    return true
+  }
+  componentDidMount()
+  {
+    setTimeout(()=> this.setState({rno:1,sname:'tamil'}),2000)
+  }
+  componentDidUpdate()
+  {
+   setTimeout(()=>document.getElementById("res").innerHTML="Updated",2000)   
+  }
+getSnapshotBeforeUpdate(prevprops,prevstate)
+{
+  setTimeout(()=>document.getElementById("res1").innerHTML="prev value:"+prevstate.rno+" "+prevstate.sname+" ",2000)
+}
+
+  render()
+  {
+  return(
+    <>
+    <h1>Class components-Life cycle 1.Mount</h1>
+    <h1>student name:{this.state.sname}</h1>
+    <h1>student rno:{this.state.rno}</h1>
+    <h1>student mark tamil:{this.state.subjects.tamil}</h1>
+    <div id='res'></div>
+    <div id='res1'></div> 
+    </>
+  )}
+}
+export default App
+/*import {useForm} from 'react-hook-form'
 function App()
 {
   const {handleSubmit,register,formState:{errors}}=useForm()
@@ -18,9 +165,10 @@ return(
 {errors.mark && errors.mark.type==="required" && <font color="red">must fill</font>}
 <input type="text" placeholder="Enter city" {...register("city",{pattern:/^[A-Za-z]+$/})}></input>
 {errors.city && errors.city.type==="pattern" && <font color="red">only caps</font>}
-<input type="text" placeholder="Enter state" {...register("state",{pattern:(/[A-Z]/g,/[0-9]/g,/[^a-zA-z0-9]/g),minLength:'8'})}></input>
+<input type="text" placeholder="Enter state" {...register("state",{pattern:(/[A-Z]/g,/[0-9]/g,/[^a-zA-z0-9]/g),minLength:'8',required:true})}></input>
 {errors.state && errors.state.type==="pattern" && <font color="red">1 letter missing..</font>}
 {errors.state && errors.state.type==="minLength" && <font color="red">1 letter missing..</font>}
+{errors.state && errors.state.type==="required" && <font color="red">must fill</font>}
 <input type="submit" ></input>
 </form>
 )
